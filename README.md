@@ -109,37 +109,39 @@ Write a C program to perform addition and subtraction of two numbers using funct
 
 ## PROGRAM:
 ```
-#include<stdio.h>
-int add(int,int);
-int sub(int,int);
-int main()
-{
-    int a,b,c,d;
-    scanf("%d%d",&a,&b);
-    c = add(a,b);
-    d = sub(a,b);
-    printf("Addition: %d\n",c);
-    printf("Subtraction: %d",d);
+#include <stdio.h>
+
+void add(int a, int b) {
+    int result = a + b;
+    printf("Addition: %d + %d = %d\n", a, b, result);
 }
-int add(int x,int y)
-{
-    int z;
-    z = x + y;
-    return z;
+
+void subtract(int a, int b) {
+    int result = a - b;
+    printf("Subtraction: %d - %d = %d\n", a, b, result);
 }
-int sub(int x,int y)
-{
-    int z;
-    z = x - y;
-    return z;
+
+int main() {
+    int num1, num2;
+    printf("Enter first number: ");
+    scanf("%d", &num1);
+
+    printf("Enter second number: ");
+    scanf("%d", &num2);
+    add(num1, num2);
+    subtract(num1, num2);
+
+    return 0;
 }
+
 ```
 
 ## OUTPUT:
 
+![Screenshot 2025-05-30 094123](https://github.com/user-attachments/assets/55d9792d-8da2-41c5-bafd-1a57ff586d2e)
 
 
-![image](https://github.com/user-attachments/assets/fdfccfdf-31b6-4ee2-b103-ca7e8a1a3789)
+
 
 
 
@@ -167,27 +169,28 @@ Write a c program to find the sum of odd digits using for loop
 
 ## PROGRAM:
 ```
-#include<stdio.h>
-int main()
-{
-    int a,b,sum=0,i;
-    scanf("%d%d",&a,&b);
-    for(i=a;i<=b;i++)
-    {
-        if(i%2!=0)
-        {
-            sum += i;
+#include <stdio.h>
+int main() {
+    int num, digit, sum = 0;
+    printf("Enter a number: ");
+    scanf("%d", &num);
+    int temp = num;
+    for (; temp > 0; temp /= 10) {
+        digit = temp % 10;
+        if (digit % 2 != 0) {  // Check for odd digit
+            sum += digit;
         }
     }
-    printf("%d",sum);
+    printf("Sum of odd digits in %d = %d\n", num, sum);
+
     return 0;
 }
+
 ```
 
 ## OUTPUT:
-![image](https://github.com/user-attachments/assets/4ef9b44f-8241-4100-b8b3-690aad32ea9a)
 
-
+![image](https://github.com/user-attachments/assets/445182cb-a8bf-4f27-9b08-97beb4a809d4)
 
 
 ## RESULT:
@@ -214,18 +217,37 @@ d.	After the loop, print the factorial value.
 
 ## PROGRAM:
 ```
-#include<stdio.h>
-int main()
-{
-    int n,fact=1;
-    scanf("%d",&n);
-    for(int i=1;i<=n;i++)
-    {
-        fact*=i;
+#include <stdio.h>
+
+
+int factorial(int n) {
+    int fact = 1;
+    for (int i = 1; i <= n; i++) {
+        fact *= i;
     }
-    printf("Factorial value is: %d",fact);
+    return fact;
+}
+
+int main() {
+    int num;
+
+ 
+    printf("Enter a positive integer: ");
+    scanf("%d", &num);
+
+   
+    if (num < 0) {
+        printf("Factorial is not defined for negative numbers.\n");
+    } else {
+        // Call the factorial function and display result
+        int result = factorial(num);
+        printf("Factorial of %d = %d\n", num, result);
+    }
+
     return 0;
 }
+
+
 ```
 
 ## OUTPUT:
